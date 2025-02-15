@@ -1,0 +1,688 @@
+.projects_main_container {
+  z-index: 0;
+  min-height: 100vh;
+  margin: 0px;
+  align-content: center;
+}
+
+.project_container {
+  /* max-width: 770px; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project_tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 80px;
+  gap: 20px;
+  z-index: 0;
+}
+
+.project_button {
+  font-family: "Mulish", sans-serif;
+  padding: 10px 20px;
+  border: 1px solid #5f595168;
+  font-weight: 600;
+  /* color: #746e65; */
+  position: relative;
+  font-size: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project_button span {
+  /* text-decoration: none; */
+  color: #746e65;
+  position: relative;
+  z-index: 3;
+  transition: all ease 0.3s;
+}
+
+.project_button::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #746e65;
+  left: 0;
+  bottom: -100%;
+  border-radius: 90%;
+  transition: all ease 0.5s;
+}
+
+.project_button:hover::after {
+  bottom: 0;
+  border-radius: 0;
+  transition: all ease 0.5s;
+}
+
+.project_button:hover span {
+  color: white;
+}
+
+/* .project_button:hover{
+    cursor: pointer;
+} */
+
+.project__active {
+  background-color: #746e65;
+}
+
+.project__active span {
+  color: white;
+}
+
+.project__sections {
+  display: grid;
+  grid-template-columns: 0.5fr;
+  justify-content: center;
+}
+
+.project__content {
+  display: none;
+}
+
+.project__content-active {
+  display: block;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.projects_modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #efefeccf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.active-modal {
+  z-index: 10000;
+  opacity: 1;
+  visibility: visible;
+}
+
+.projects_modal-content {
+  z-index: 19000;
+  border: #57534e solid 1px;
+  width: 500px;
+  position: relative;
+  background-color: #fafaf9;
+  padding: 40px;
+}
+
+.projects_modal-see_project_div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project_modal-subtitle {
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  color: #fcac49d8;
+  font-weight: 500;
+}
+
+.projects_modal-content .see_project {
+  width: 80px;
+  display: inline-block;
+  background-color: #8cadadc2;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all ease 0.5s;
+  border: none;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+}
+
+.projects_modal-content .see_project a {
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #57534e;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+  text-decoration: none;
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.projects_modal-content .see_project:hover {
+  cursor: pointer;
+}
+
+.projects_modal-content .see_project:hover a {
+  color: white;
+}
+
+.projects_modal-content .see_project::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #57534e;
+  left: 0;
+  bottom: -100%;
+  border-radius: 90%;
+  transition: all ease 0.5s;
+}
+
+.projects_modal-content .see_project:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.projects_modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.projects_modal-close {
+  /* position: absolute;
+    top: 30px;
+    right: 30px; */
+  font-size: 20px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  color: #57534e;
+}
+
+.projects_modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.project_modal-title {
+  font-family: "Libre Bodoni", serif;
+  font-size: 23px;
+  color: #5f5a52;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
+}
+
+.projects_modal-description {
+  font-family: "Mulish", sans-serif;
+  font-size: 17px;
+  color: #77746f;
+  font-weight: 600;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  /* padding-bottom: 20px; */
+  /* margin-top: 25px; */
+  /* height: 60px; */
+  align-content: center;
+}
+
+.projects_modal-info-description {
+  font-family: "Mulish", sans-serif;
+  font-size: 17px;
+  color: #77746f;
+  font-weight: 600;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  /* padding-bottom: 20px; */
+  /* margin-top: 25px; */
+  /* height: 60px; */
+  align-content: center;
+}
+
+.projects_modal-points-title {
+  font-family: "Libre Bodoni", serif;
+  font-size: 19px;
+  color: #fb9820;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
+}
+
+.projects_modal-points {
+  padding-inline-start: 10px;
+  margin-block-start: 15px;
+  margin-block-end: 0px;
+}
+
+.projects_modal-point {
+  height: 40px;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-direction: row;
+  color: #77746f;
+}
+
+.projects_modal-circle {
+  color: #8cadadc2;
+}
+
+/* .project_data img
+{
+    height: auto;
+    width: 90%;
+    margin: 20px;
+}
+
+.project_data
+{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #57534e 0.6px solid;
+    height: auto;
+    width: 400px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project_data:hover
+{
+    background-color: white;
+}
+
+.project_data:hover .see_more
+{
+    background-color: white;
+}
+
+.project_data_links
+{
+    margin: 0px;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.project_data_links button
+{
+    height: 25px;
+    width: 80px;
+    background-color: white;
+}
+
+.project_data_links .see_more
+{
+    background-color: whitesmoke;
+    transition: all 0.2s ease;
+    border: #57534e 1px solid;
+}
+
+.project_data_links .see_project a
+{
+    text-decoration: none;
+    color: #57534e;
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.project_data_links .see_project{
+    display: inline-block;
+    background-color:#8cadadc2;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.5s;
+    border: none;
+}
+
+.project_data_links .see_project::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #57534e;
+    left: 0;
+    bottom: -100%;
+    border-radius: 90%;
+    transition: all ease 0.5s;
+}
+
+.project_data_links .see_project:hover{
+    cursor: pointer;
+}
+
+.project_data_links .see_project:hover a{
+    color: white;
+}
+
+.project_data_links .see_project:hover::after{
+    bottom: 0;
+    border-radius: 0;
+    transition: all ease 0.5s;
+}
+
+.project_data_links .see_more:hover a
+{
+    color: #ffffff;
+    position: relative;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.project_data_links .see_more{
+    border: 1px solid #57534e;
+}
+
+.project_data_links .see_more{
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.5s;
+    border: none;
+}
+
+.project_data_links .see_more::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #57534e;
+    left: 0;
+    bottom: -100%;
+    border-radius: 90%;
+    transition: all ease 0.5s;
+}
+
+.project_data_links .see_more{
+    border: #57534e 0.6px solid;
+}
+
+.project_data_links .see_more:hover::after{
+    bottom: 0;
+    border-radius: 0;
+    transition: all ease 0.5s;
+}
+ */
+
+.project_data {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: #57534e 0.6px solid;
+  height: 430px;
+  width: 400px;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  cursor: default;
+  transition: all 0.3s ease;
+  /* z-index: 0; */
+}
+
+.project_data:hover {
+  background-color: #eeeeee;
+}
+
+.project_data img {
+  height: 210px;
+  overflow: hidden;
+  width: 360px;
+  margin: 20px;
+  margin-top: 0px;
+}
+
+.project_data_links {
+  /* z-index: ; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+}
+
+.project_data_links button {
+  height: 25px;
+  width: 80px;
+  background-color: white;
+}
+
+.project_data_links .see_more {
+  /* z-index: 5; */
+  position: absolute;
+  background-color: whitesmoke;
+  transition: all 0.2s ease;
+  border: #57534e 0.6px solid;
+}
+
+.project_data:hover .see_more {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.project_data_links .see_more a {
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #57534e;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.project_data_links .see_more {
+  width: 80px;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  /* display: none; */
+  transition: all ease 0.5s;
+}
+
+.project_data_links .see_more:hover a {
+  color: #ffffff;
+}
+
+.project_data_links .see_more::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #57534e;
+  left: 0;
+  /* z-index: 1; */
+  bottom: -100%;
+  border-radius: 90%;
+  transition: all ease 0.5s;
+}
+
+.project_data_links .see_more:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.project_data_links .see_project {
+  width: 80px;
+  display: inline-block;
+  background-color: #8cadadc2;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all ease 0.5s;
+  border: none;
+  padding-inline-start: 0px;
+  padding-inline-end: 0px;
+}
+
+.project_data_links .see_project a {
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #57534e;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 26px;
+  padding-right: 26px;
+  text-decoration: none;
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.project_data_links .see_project:hover {
+  cursor: pointer;
+}
+
+.project_data_links .see_project:hover a {
+  color: white;
+}
+
+.project_data_links .see_project::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #57534e;
+  left: 0;
+  bottom: -100%;
+  border-radius: 90%;
+  transition: all ease 0.5s;
+}
+
+.project_data_links .see_project:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.project_title {
+  font-family: "Libre Bodoni", serif;
+  font-size: 19px;
+  color: #5f5a52;
+  font-weight: 700;
+  margin: 0px;
+  padding: 0px;
+}
+
+.project_subtitle {
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  color: #77746f;
+  font-weight: 600;
+  padding: 0px;
+  /* margin-top: 25px; */
+  height: 60px;
+  align-content: center;
+}
+
+.project_title_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project_tag {
+  font-family: "Fira Code", monospace;
+  font-size: 15px;
+  color: #fcac49d8;
+  font-weight: 500;
+  margin-top: 0px;
+}
+
+.medium_img {
+  background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .project_button {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .project_tabs
+  {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    gap: 10px;
+  }
+  .project__content-active {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+  .project_data {
+    height: 300px;
+    width: 240px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .project_data img {
+    height: 150px;
+    width: 240px;
+    margin: 20px;
+    /* margin-top: 0px; */
+  }
+  .project_subtitle
+  {
+    display: none;
+  }
+  .project_tag
+  {
+    justify-content: right;
+  }
+
+  .project_container
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project__content
+  {
+    padding: 3.5rem 0.5rem 1.25rem 1.5rem;
+  }
+
+  .projects_modal-content
+  {
+    width: 300px;
+    padding: 20px;
+  }
+
+  .projects_modal
+  {
+    padding: 0 0px;
+  }
+  .projects_modal-close {
+    font-size: 20px;
+    background-color: #57534e;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    /* border-radius: 50%; */
+    text-align: center;
+    transition: all ease 0.3s;
+    color: #e8dcce;
+  }
+}

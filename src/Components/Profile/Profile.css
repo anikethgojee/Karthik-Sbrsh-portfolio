@@ -1,0 +1,248 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0px;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.profile_container {
+  /* border: 1px solid #57534e38; */
+  border-radius: 0;
+  padding: 60px 30px 40px 0px;
+  /* margin-top: 30px; */
+  /* margin-bottom: 30px; */
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button h4 {
+  font-family: "Mulish", sans-serif;
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #8cadadc2;
+  /* border: 1px solid #8cadadc2; */
+  font-weight: 500;
+  color: #746e65;
+  position: relative;
+  font-size: 16px;
+  overflow: hidden;
+  transition: all ease 0.5s;
+}
+
+.button a {
+  text-decoration: none;
+  color: #57534e;
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.button h4::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #57534e;
+  left: 0;
+  bottom: -100%;
+  border-radius: 90%;
+  transition: all ease 0.5s;
+}
+
+.button h4:hover {
+  cursor: pointer;
+  /* border: 1px solid #57534e; */
+}
+
+.button h4:hover a {
+  color: white;
+  /* border: 1px solid #57534e; */
+}
+
+.button h4:hover::after {
+  bottom: 0;
+  border-radius: 0;
+  transition: all ease 0.5s;
+}
+
+/* 
+.button {
+    font-family: "Mulish", sans-serif;
+    display: inline-block;
+    background-color:#638989c2;
+    font-size: 17px;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all ease 0.7s;
+}
+
+.button:hover {
+    background-color:#57534ee2;
+} 
+
+.button__icon {
+    margin-left: 10px;
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center;
+} */
+
+.section__title {
+  padding-top: 100px;
+  font-family: "Libre Bodoni", serif;
+  font-weight: 800;
+  font-size: 75px;
+  color: #656058;
+  margin-block-start: 0;
+  margin-block-end: -10px;
+}
+
+.section__subtitle {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  color: #847f7887;
+  display: block;
+  font-size: 20px;
+  margin-bottom: -50px;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+}
+
+.about__data {
+  z-index: 0;
+}
+
+.about__container {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.about__img {
+  width: 400px;
+  height: auto;
+  border-radius: 0px;
+  justify-self: center;
+  border: #57534e solid 3px;
+  transition: all ease 0.4s;
+}
+
+.about__img:hover {
+  border: #c0a680 solid 3px;
+}
+
+.about__info {
+  grid-template-columns: repeat(4, 140px);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  /* border-radius: 0.75rem; */
+  text-align: center;
+  padding: 1rem 1.25rem;
+}
+
+.about__description .skill_highlights {
+  color: #547c7cf1;
+  font-weight: 900;
+  font-size: 23px;
+  transition: all ease 0.5s;
+}
+
+.skill_highlights:hover {
+  color: #77a4a4;
+  cursor: pointer;
+}
+
+.about__title {
+  color: #57534e;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.about__subtitle {
+  color: #656058d9;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+}
+
+.about__description {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  color: #656058af;
+  font-size: 21px;
+  padding: 20px 20px 0 0;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .section__title {
+    font-weight: 800;
+    font-size: 40px;
+  }
+  .section__subtitle {
+    font-size: 16px;
+  }
+  .about__img {
+    width: 220px;
+    justify-self: center;
+  }
+  .about__container {
+    grid-template-columns: 1fr;
+  }
+  .about__data {
+    text-align: center;
+  }
+  .about__box {
+    padding: 0.75rem 0.5rem;
+  }
+  .about__info {
+    grid-template-columns: repeat(2, 140px);
+    justify-content: center;
+  }
+  .about__description {
+    padding: 0rem;
+    margin-bottom: 2rem;
+    font-size: 18px;
+  }
+  .profile_container {
+    padding: 20px 20px 10px 20px;
+  }
+  .about__description .skill_highlights {
+    font-size: 18px;
+  }
+  .about__img {
+    border: #57534e solid 2px;
+  }
+  .button h4
+  {
+    padding: 10px 13px;
+    font-size: 15px;
+  }
+  /* .button
+  {
+    padding-bottom: 40px;
+  } */
+}
